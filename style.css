@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+:root {
+    transition: 0.5s ease;
+}
 :root.dark {
     --bg: #111111;
     --text: #fff;
