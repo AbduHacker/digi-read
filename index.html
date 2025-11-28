@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DigiRead</title>
-    <link href='https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+    <link
+      href="https://cdn.boxicons.com/3.0.5/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <header class="hero">
-        <nav class="navbar">
-           <div class="logo"><i class='bx  bx-book-library'></i> DigiLibrary</div>
-           <button class="theme-tooggle-btn"><i class='bx  bx-sun'></i></button>
-           <ul class="nav-list">
-            <li class="nav-item"><a href="#">Home</a></li>
-            <li class="nav-item"><a href="#">Library</a></li>
-           </ul> 
-        </nav>
+      <nav class="navbar">
+        <div class="logo"><i class="bx bx-book-library"></i> DigiLibrary</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero">Home</a></li>
+          <li class="nav-item"><a href="#">Library</a></li>
+        </ul>
+        <button class="theme-toggle-btn"><i class="bx bx-sun"></i></button>
+      </nav>
+      <div class="home-section">
+        <h1 class="title">DigiLibrary</h1>
+        <p class="description">A beautfully designed digital library. You can add books, mark as read and delete</p>
+        <a href="#home"><button class="btn">Go to Library</button></a>
+      </div>
     </header>
     <main>
-        <div class="container">
-            <div class="add-card">
-                <button class="add-btn">+</button>
-                <span>Add</span>
-            </div>
+      <div class="container">
+        <div class="add-card">
+          <button class="add-btn">+</button>
+          <span>Add</span>
         </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
