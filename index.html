@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,28 +17,60 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <header class="hero">
+    <header class="hero" id="home">
       <nav class="navbar">
         <div class="logo"><i class="bx bx-book-library"></i> DigiLibrary</div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="#hero">Home</a></li>
-          <li class="nav-item"><a href="#">Library</a></li>
+          <li class="nav-item"><a href="#home">Home</a></li>
+          <li class="nav-item"><a href="#main">Library</a></li>
         </ul>
         <button class="theme-toggle-btn"><i class="theme-icon bx bx-sun"></i></button>
       </nav>
       <div class="home-section">
         <h1 class="title">DigiLibrary</h1>
         <p class="description">A beautfully designed digital library. You can add books, mark as read and delete</p>
-        <a href="#home"><button class="btn">Go to Library</button></a>
+        <a href="#main"><button class="btn">Go to Library</button></a>
       </div>
     </header>
-    <main>
+    <main id="main">
+        <h2 class="main-title">Library</h2>
       <div class="container">
+        <div class="card">
+          <div class="img-container"></div>
+          <div class="detailes">
+            <div class="title">Harry Potter</div>
+            <div class="author">By J.K. Rowling</div>
+            <div class="pages">1000 pages</div>
+          </div>
+          <div class="card-buttons">
+              <button class="btn card-btn">Mark as read</button>
+              <button class="btn card-btn">Delete</button>
+            </div>
+        </div>
         <div class="add-card">
-          <button class="add-btn">+</button>
+          <button class="add-btn btn">+</button>
           <span>Add</span>
         </div>
       </div>
+      <dialog class="modal">
+        <h2>Enter details of the book</h2>
+        <form class="book-info" method="dialog">
+          <label for="title" id="main-label">Title:</label>
+          <input type="text" name="title" id="title" required>
+          <label for="author" id="main-label">Authot:</label>
+          <input type="text" name="author" id="author" required>
+          <label for="pages" id="main-label">Number of pages:</label>
+          <input type="number" name="pages" id="pages" required>
+          <label for="image-url">Image url</label>
+          <input type="url" name="url" id="url" required>
+          <label id="main-label">Have you read it?</label>
+          <div class="radios">
+            <div><input type="radio" name="read" id="read-yes"><label for="read-yes">Yes</label></div>
+            <div><input type="radio" name="read" id="read-no"><label for="read-no">No</label></div>
+          </div>
+          <button class="btn form-btn" type="submit">Add</button>
+        </form>
+      </dialog>
     </main>
     <script src="./script.js"></script>
   </body>

@@ -5,12 +5,14 @@
     font-family: 'Roboto', sans-serif;
 }
 :root {
+    scroll-behavior: smooth;
     transition: 0.5s ease;
 }
 :root.dark {
     --bg: #111111;
     --text: #fff;
     --navbar: #000000;
+    --main: #343434;
 }
 :root.light {
     --bg: #e9ecef;
@@ -58,7 +60,7 @@
     border-radius: 20px;
     transition: 200ms ease-in-out;
 }
-.nav-list a:focus {
+.nav-list a:active, .nav-list a:hover {
     background-color: var(--navbar);
     color: var(--text);
 }
@@ -80,6 +82,7 @@
     align-items: center;
 }
 .description {
+    text-align: center;
     font-size: 1.2rem;
     font-weight: 400;
 }
@@ -89,6 +92,10 @@
     color: var(--navbar);
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    transition: 0.15s ease;
+}
+.btn:hover {
+    opacity: 0.5;
 }
 .home-section .btn {
     padding: 0.5rem 1rem;
@@ -96,3 +103,119 @@
     font-size: 1.2rem;
 }
 
+main {
+    padding: 1.2rem;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--main);
+    color: var(--text);
+   display: grid;
+   grid-template-rows: 100px 1fr;
+   grid-template-columns: 1fr;
+}
+.main-title {
+    justify-self: center;
+    font-size: 2rem;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 250px));
+    grid-auto-rows: 280px;
+    gap: 15px;
+}
+.add-card {
+    background-color: var(--bg);
+    padding: 1.5rem;
+    height: 280px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border: 2px dashed var(--text);
+}
+.add-btn {
+    font-size: 2rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+}
+.card {
+    background: var(--bg);
+    height: 280px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    gap: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    gap: 1rem;
+}
+.img-container {
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-image: url('https://assets-prd.ignimgs.com/2024/10/23/harry-potter-books-in-order-1-1729712610076.jpg');
+    background-size: cover;
+}
+.card-buttons {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.card-btn {
+    padding: 0.5rem 1rem;
+}
+.modal:modal {
+    margin: 1rem auto;
+    min-width: 360px;
+    border: none;
+    background-color: var(--bg);
+    color: var(--text);
+    border-radius: 20px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.book-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+input[type="text"], input[type="number"], input[type="url"] {
+    outline: none;
+    border: 1px solid var(--text);
+    background-color: var(--bg);
+    color: var(--text);
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+.radios {
+    display: flex;
+    gap: 1rem;
+}
+.radios div {
+    display: flex;
+    gap: 0.2rem;
+}
+.form-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
