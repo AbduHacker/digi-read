@@ -35,7 +35,7 @@
     <main id="main">
         <h2 class="main-title">Library</h2>
       <div class="container">
-        <div class="card">
+        <!-- <div class="card">
           <div class="img-container"></div>
           <div class="detailes">
             <div class="title">Harry Potter</div>
@@ -46,29 +46,30 @@
               <button class="btn card-btn">Mark as read</button>
               <button class="btn card-btn">Delete</button>
             </div>
-        </div>
+        </div> -->
         <div class="add-card">
           <button class="add-btn btn">+</button>
           <span>Add</span>
         </div>
       </div>
       <dialog class="modal">
+        <i class='bx  bx-x'></i> 
         <h2>Enter details of the book</h2>
         <form class="book-info" method="dialog">
           <label for="title" id="main-label">Title:</label>
-          <input type="text" name="title" id="title" required>
+          <input type="text" name="title" id="title" required minlength="5">
           <label for="author" id="main-label">Authot:</label>
-          <input type="text" name="author" id="author" required>
+          <input type="text" name="author" id="author" required minlength="5">
           <label for="pages" id="main-label">Number of pages:</label>
-          <input type="number" name="pages" id="pages" required>
-          <label for="image-url">Image url</label>
+          <input type="number" name="pages" id="pages" required min="1">
+          <label for="url">Image url</label>
           <input type="url" name="url" id="url" required>
           <label id="main-label">Have you read it?</label>
           <div class="radios">
-            <div><input type="radio" name="read" id="read-yes"><label for="read-yes">Yes</label></div>
-            <div><input type="radio" name="read" id="read-no"><label for="read-no">No</label></div>
+            <div><input type="radio" name="read" id="read-yes" value="true"><label for="read-yes">Yes</label></div>
+            <div><input type="radio" name="read" id="read-no" value="false"><label for="read-no">No</label></div>
           </div>
-          <button class="btn form-btn" type="submit">Add</button>
+          <input class="btn form-btn" type="submit" value="Add">
         </form>
       </dialog>
     </main>
