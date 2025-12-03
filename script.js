@@ -1,4 +1,5 @@
 const myLibrary = [];
+let cards_id = [];
 function themeToggler() {
   const root = document.querySelector("html");
   const icon = document.querySelector(".theme-icon");
@@ -27,7 +28,7 @@ function Book(title, author, pages, image, read) {
 }
 
 Book.prototype.readToggle = function() {
-  this.read = true;
+  this.read = this.read ? false : true;
 }
 Book.prototype.deleteBook = function() {
   delete this;
@@ -35,6 +36,7 @@ Book.prototype.deleteBook = function() {
 function addBookToLibrary(title, author, pages, image, read) {
   const book = new Book(title, author, pages, image, read);
   myLibrary.push(book);
+  createCards();
 }
 
 function modalControls() {
@@ -58,14 +60,73 @@ function formControls() {
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
     const image = document.querySelector("#url").value;
-    const readStatus = document.querySelector("input[name='read']:checked").value;
-    document.querySelectorAll("input").values = "";
-
+    const readStatus = document.querySelector("input[name='read']:checked").value === "true" ? true : false;
     addBookToLibrary(title, author, pages, image, Boolean(readStatus));
+    document.querySelectorAll("input").values = "";
     });
 }
 
+function createCards() {
+  let container = document.querySelector(".container");
+  let cards = container.querySelectorAll(".card");
+  myLibrary.forEach((book) => {
+    if (!(cards_id.includes(book.id)) || (cards_id.length === 0) ) {
+        let newCard = document.createElement("div");
+        newCard.className = "card";
+        newCard.dataset.id = book.id;
+        cards_id.push(newCard.dataset.id);
+        let image_container = document.createElement("div");
+        image_container.className = "img-container";
+        image_container.style.backgroundImage = `url(${book.image})`;
+        newCard.append(image_container);
+
+        let details = document.createElement("div");
+        details.className = "details";
+
+        let title = document.createElement("div");
+        title.textContent = book.title;
+        details.append(title);
+
+        let author = document.createElement("div");
+        author.textContent = `By ${book.author}`;
+        details.append(author);
+
+        let pages = document.createElement("div");
+        pages.textContent = `${book.pages} pages`;
+        details.append(pages);
+
+        newCard.append(details);
+
+        let cardButtons = document.createElement("div");
+        cardButtons.className = "card-buttons";
+
+        let readButton = document.createElement("button");
+        readButton.className = "btn card-btn read-btn";
+        readButton.textContent = book.read ? "Mark us unread" : "Mark as read";
+        readButton.addEventListener("click", (event) => {
+          book.readToggle();
+          readButton.textContent = book.read ? "Mark us unread" : "Mark us read";
+        })
+        cardButtons.append(readButton);
+
+        let deleteButton = document.createElement("button");
+        deleteButton.className = "btn card-btn delete-btn";
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", (event) => {
+          container.removeChild(newCard);
+          book.deleteBook();
+        })
+        cardButtons.append(deleteButton);
+
+        newCard.append(cardButtons);
+
+        container.insertBefore(newCard, document.querySelector(".add-card"));
+    }
+  })
+}
+addBookToLibrary("Harry Potter", "J.K. Rowling", 1000, "https://m.media-amazon.com/images/I/81uRUnI9Y3L._AC_UF1000,1000_QL80_.jpg", false);
 
 themeToggler();
 modalControls();
 formControls();
+

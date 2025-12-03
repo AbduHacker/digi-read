@@ -122,6 +122,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(120px, 250px));
     grid-auto-rows: 280px;
     gap: 15px;
+    justify-content: center;
 }
 .add-card {
     background-color: var(--bg);
